@@ -1,0 +1,48 @@
+\documentclass{article}
+
+\begin{document}
+
+<<echo=FALSE>>=
+library(ggplot2)
+library(stargazer)
+parity <- read.csv("NBAparity.csv")
+@
+
+I have always enjoyed participating in and spectating sport events because of the unpredictability of any given fixture.  This unpredictability stems from the competitive nature of sports, and in turn competition is only viable if some level of parity exists within the sport.  This year the NBA lack the latter of these elements at the top.  Game 5 of this year's NBA Finals was the culmination of Golden State's reign of terror in the league.  We witness dominance in sports frequently; just this year Real Madrid won its third Champions League final in three years in convincing fashion, Rafa Nadal won the French Open without dropping a single set, and Chelsea won the Premier League with the second highest point total in EPL history.  Yet, the Golden State case felt different.  In their 2015-2016 campaign, the Warriors accumulated a 73-9 record in the regular season, setting an NBA record in regular season wins.  This team, which would wind up losing the NBA Finals in seven games to Cleveland, only lost two starters: Andrew Bogut and Harrison Barnes, two role players at best.  The latter of this duo was replaced by Kevin Durant, a 7-footer whose tendency to play like a guard makes him virtually unguardable as reflected by his three scoring titles and 2014 MVP award.  I watched about 10 regular season games last year.  Durant's move, while it made for great Twitter moments, killed whatever sense of parity was left in the league.  A struggling Brooklyn Nets fan, I have looked to the playoffs to distract me from the 21-win season the team experienced in its 2015=2016 campaign.  In 2016-2017, I knew that wasn't a possibility as there was a looming sensation before the season even started that, barring injury, Golden State would march to an NBA title. \\*
+
+While parity at the top might have been non-existent, that is not to say there weren't plenty of good games.  A good game, in my opinion, is a close game featuring fast-paced offenses.  Statistically speaking, the teams with the best combination of high points per games (PPG) and low average point differential (DIFF) would make for the best games.  The scatterplot below illustrates the most exciting teams to watch this year on the left inside.\\*
+
+
+<<echo=F>>=
+parity$X3PT.GAMES <- parity$X3PT.WINS +  parity$X3PT.LOSSES
+ggplot(parity, aes(x= DIFF, y= PPG, colour=SIGN, label=TEAM)) +
+  geom_point() + 
+  geom_text(aes(label=TEAM),hjust=0, vjust=0) +
+  ggtitle("")
+@
+
+Indiana, Charlotte, Oklahoma City, Portland, and Denver all stand out in this illustration as excellent teams to watch if looking for fast-paced and dramatic games.  In fact, as the graphic illustrates, these five teams all are averaging with 105 PPG, with a +/- DIFF of less than one. To make sure that these teamss were not just winning a lot of games by a large margin and losing an equivalent amount of games by a similarly high margin, or rather to make sure that DIFF statistic is not misleading for any of these teams it is interesting to observe the amount of games decided by three points or less that these teams found themselves in.\\*
+
+
+<<echo=FALSE>>=
+ggplot(parity, aes(x= DIFF, y= X3PT.GAMES, colour=SIGN, label=TEAM)) +
+  geom_point() + geom_text(aes(label=TEAM),hjust=0, vjust=0)
+mean(parity$X3PT.GAMES)
+@
+
+
+Oklahoma Ciy, Portland, and Denver, all pass this test as they all had 15 or more games decided by three points or less, therefore all taking part in more of these games than the league average of 12.26667.   On the other hand, Charlotte and Indiana took part in less than ten of such games, meaning their low DIFF statistic is not as relevant.\\*
+
+While OKC, Portland, and Denver were all thrilling teams to watch from a statistical perspective, however I have never been a fan of ties myself, so I am not satisified with saying that they were all equally exciting.  Oklahoma City was the most exciting team to watch this season.  Not only they did they find themselves in the highest amount of games decided by three points or less (19), but they also boasted an historical season from their PG, Russell Westbrook.  Westbrook averaged a triple-double and recorded 43 of them for an NBA record of most triple doubles in a season en route to finishing a regular season that will probably will probably will see him claim his first career MVP award.  What statistics cannot quantify is the man's athleticism; At 6'3, Westbrook is an explosive driver who can jump out of the gym.  Westbrook's unpredictability as a player is exactly what I want to see closing out games already full of drama.  Westbrook's star shines brighter than the stars of any player on either Portland or Denver, and it is the tiebreaker that crowned the Oklahoma City Thunder the most exciting team to watch of the 2016/2017 NBA regular season. \\*
+
+While I am looking to be on the edge of my seat while watching basketball not involving my Brooklyn Nets, I understand that this may not be the case for everybody.  If you are looking to witness greatness,in the sense that you are looking to watch the best basketball available in the league, Houston, San Antonio and Golden State are your teams.  These three teams feature a + DIFF higher than 5.0.  However, they get there in different ways.  Houston and Golden State simply outscore their opponents with both teams averaging more than 115 PPG*.  San Antonio, on the other hand only averages slightly above 105 PPG, yet their elite defense which allows the second fewest points in the leagues (98.1), is what makes them able to boast such a high DIFF.  An upside to Kevin Durant's move to Golden State is that it created a team arguably better than the 95-96 Bulls, and 15-16 Warriors.  While the 16-17 Warriors did not get to 72 or 73 wins in the regular season, they lost only one game in the playoffs en route to a second NBA title in three years beating the Cavaliers in five games while Lebron James average a triple double.  This season's Warriors team still won 67 games in the regular season with the highest positive DIFF statistic since the 95-96 Bulls. \\*
+
+[number of wins * diff for top 3 teams in the league from 1995-96 to 2016-2017]
+
+Statistics have in the past been used to determine consumer trends and analyze sport performances.  In this article, I am looking to shape consumer decisions through the use of statistics.  If you are a fan of basketball who wmay not be very familiar with the NBA I am to tell you that, ddepending on your tastes, you might want to watch either the Oklahoma City Thunder or the Golden State Warriors.  If you are familiar with basketball and already root for a team, this is to tell you that the DIFF and PPG statistics are essential in finding games right up your alleyway on the nights your team is not playing.  All in all, this stems from me looking for a distraction from my sorrows as a Brooklyn Nets fan, which I hope will end soon.  I would say trust the process, but there is none in motion, however, the NBA needs bad teams and this is simply our turn at the bottom of the wheel.  
+
+*James Harden, Houston's PG, gets an unfairly bad wrap for his defense, which is actually very much improving. 
+
+
+
+\end{document}
