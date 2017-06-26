@@ -6,7 +6,7 @@
 \begin{document}
 \maketitle
 
-<<>>=
+<<echo=FALSE, message=FALSE, warning=FALSE>>=
 library(ggplot2)
 library(stargazer)
 parity <- read.csv("NBAparity.csv")
@@ -17,20 +17,17 @@ I love sports.  I love to see parity, I love to see competiion, I love to see un
 
 KD's move to the Warriors is just as impactful as it seemed.  This Warriors team is arguably better than both the 95-96 Bulls and the 15-16 Warriors. While the 16-17 team did not get to 72 or 73 wins in the regular season, they still won 67 games tied for the second highest amount of wins between the 02-03 and 16-17 period chosen for this analysis.  The Warriors averaged a positive 11.6 average point differential (DIFF), the highest in a regular season in the 14-year period.  Golden State's 67 wins in 2016-2017 tie the 06-07 Mavericks, the 15-16 Spurs, and Golden State's 14-15 team.  The latter of this trio went on to win the NBA title downing the Cleveland Cavaliers in 6 games.  Golden State's 16-17 is so impressive because even though they didn't rack up 70+ wins in the regular season they swept every playoff opponent they faced before winning the Finals in 5.  While the 14-15 team won the Finals in 6 without Kyrie Irving playing for the Cavs, the 16-17 Warriors won in 5 facing the Cavs at full strength while Lebron James became the first player in NBA history to average a triple double in history. \\*
 
-<<>>=
+<<echo=FALSE>>=
 ggplot(KDkilledparity, aes(x= DIFF, y= WINS, colour=YEAR, label=TEAMS)) +
   geom_point() + geom_text(aes(label=TEAMS),hjust=0, vjust=0) +
   ggtitle("Top 3 Teams With Most Ws in Each Season Between 02-03 and 16-17")
 @
 
 
-If you are from the camp that claims LeBron James started the superteam with its move to Miami, I would have to unfortunately agree with you.  A superstar joined another superstar and together they made magic.  It was never a big three though, Bosh, even as he was an All-Star in these years, never seemed to have a real impact in Lebron James' campaign in Miami.  However, to pretend that Kevin Durant and Lebron James did the same thing is just unfair.  Kevin Durant, the 2014 MVP, joined Steph Curry, a two-time MVP, the first unanimous MVP in league history, and the maker of 400+ three pointers in the 2016-2017 season.\\*
-
-
 While parity at the top might have been non-existent, that is not to say there weren't plenty of good games.  A good game, in my opinion, is a close game featuring fast-paced offenses.  Statistically speaking, the teams with the most amount of points (PPG) and lowest average point differential (DIFF) would make for the best games.  The scatterplot below illustrates the most exciting teams to watch this year on the left inside.\\*
 
 
-<<>>=
+<<echo=FALSE>>=
 parity$X3PT.GAMES <- parity$X3PT.WINS +  parity$X3PT.LOSSES
 ggplot(parity, aes(x= DIFF, y= PPG, colour=SIGN, label=TEAM)) +
   geom_point() + 
