@@ -37,7 +37,7 @@ ggplot(parity, aes(x= DIFF, y= PPG, colour=SIGN, label=TEAM)) +
 Indiana, Charlotte, Oklahoma City, Portland, and Denver all stand out in this illustration as excellent teams to watch if looking for fast-paced and dramatic games.  In fact, as the graphic illustrates, these five teams all are averaging with 105 PPG, with a +/- DIFF of less than one. To make sure that these teamss were not just winning a lot of games by a large margin and losing an equivalent amount of games by a similarly high margin, or rather to make sure that DIFF statistic is not misleading for any of these teams it is interesting to observe the amount of games decided by three points or less that these teams found themselves in.\\*
 
 
-<<>>=
+<<echo=FALSE>>=
 parity$THREE.PT.GAMES <- parity$X3PT.WINS + parity$X3PT.LOSSES
 ggplot(parity, aes(x= DIFF, y= THREE.PT.GAMES, colour=SIGN, label=TEAM)) +
   geom_point() + geom_text(aes(label=TEAM),hjust=0, vjust=0)
